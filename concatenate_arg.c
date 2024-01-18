@@ -6,7 +6,7 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 11:37:54 by apintus           #+#    #+#             */
-/*   Updated: 2024/01/18 15:18:02 by apintus          ###   ########.fr       */
+/*   Updated: 2024/01/18 18:12:52 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,19 +40,19 @@ char	*concatenate_arg(char **argv, int argc)
 
 	i = 0;
 	len = 0;
-	while(i++ < argc - 1)
+	while(++i < argc)
 		len = len + (ft_strlen(argv[i]) + 1);
 	combined_arg = (char *)malloc(sizeof(char) * len + 1);
 	if (combined_arg == NULL)
 		return (NULL);
 	current_index = 0;
 	i = 0;
-	while (i++ < argc - 1)
+	while (++i < argc)
 	{
 		ft_strcpy(combined_arg + current_index, argv[i]);
 		current_index += (ft_strlen(argv[i]) + 1);
 	}
 	combined_arg[current_index] = '\0';
-	printf("%s\n", combined_arg);
+	printf("%s\n\n", combined_arg); // a retirer
 	return (combined_arg);
 }

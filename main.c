@@ -6,7 +6,7 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 14:42:49 by apintus           #+#    #+#             */
-/*   Updated: 2024/01/18 15:15:07 by apintus          ###   ########.fr       */
+/*   Updated: 2024/01/18 18:19:42 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,24 @@
 
 int main(int argc, char **argv)
 {
-	/*t_stack_node	*a;
+	t_stack_node	*a;
 	t_stack_node	*b;
 
 
 	a = NULL;
-	b = NULL;*/
+	b = NULL;
 	if (argc == 1)
 		return (1);
 	else
 		argv = ft_split(concatenate_arg(argv, argc), ' ');
-	/*init_stack_a(&a, all_numbers(argc, *argv));
-	if (!stack_sorted(a))
+	int i = 0;
+	while(argv[i])
+	{
+		printf("%s\n", argv[i]);
+		i++;
+	}
+	init_stack_a(&a, argv); //voir le plus 1?
+	/*if (!stack_sorted(a))
 	{
 		if (stack_len(a) == 2)
 			sa(&a, false);
@@ -35,10 +41,15 @@ int main(int argc, char **argv)
 			sort_stacks(&a, &b);
 	}
 	free_stack(&a);*/
-	int i = 0;
-	while(argv[i])
+	printf("\n");
+	t_stack_node	*tmp;
+	t_stack_node	*current;
+
+	current = a;
+	while(current)
 	{
-		printf("%s\n", argv[i]);
-		i++;
+	tmp = current->next;
+	printf("%d\n", current->nbr);
+	current = tmp;
 	}
 }
