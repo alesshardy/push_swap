@@ -6,7 +6,7 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 13:12:57 by apintus           #+#    #+#             */
-/*   Updated: 2024/01/18 17:59:50 by apintus          ###   ########.fr       */
+/*   Updated: 2024/01/19 15:52:37 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,32 @@ int	error_syntax(char	*str);
 
 //utils
 t_stack_node	*find_last(t_stack_node *stack);
+bool	stack_sorted(t_stack_node *stack);
+int	stack_len(t_stack_node *stack);
+t_stack_node	*find_max(t_stack_node *stack);
+
+//commands
+void	swap(t_stack_node **stack);
+void	sa(t_stack_node **a);
+void	sb(t_stack_node **b);
+void	ss(t_stack_node **a,t_stack_node **b);
+
+void	rotate(t_stack_node **stack);
+void	ra(t_stack_node **a);
+void	rb(t_stack_node **b);
+void	rr(t_stack_node **a, t_stack_node **b);
+
+void	reverse_rotate(t_stack_node **stack);
+void	rra(t_stack_node **a);
+void	rrb(t_stack_node **b);
+void	rrr(t_stack_node **a, t_stack_node **b);
+
+void	push(t_stack_node **src, t_stack_node **dest);
+void	pa(t_stack_node **b, t_stack_node**a);
+void	pb(t_stack_node **a, t_stack_node**b);
+
+
+//algo
+void	sort_three(t_stack_node **a);
 
 #endif
