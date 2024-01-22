@@ -6,7 +6,7 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 13:12:57 by apintus           #+#    #+#             */
-/*   Updated: 2024/01/19 15:52:37 by apintus          ###   ########.fr       */
+/*   Updated: 2024/01/22 16:41:37 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,11 @@
 typedef struct s_stack_node
 {
 	int	nbr;
+	int	index;
+	int	cost;
+	bool	above_median;
+	bool	cheapest;
+	struct s_stack_node	*target;
 	struct s_stack_node	*next;
 	struct s_stack_node	*previous;
 

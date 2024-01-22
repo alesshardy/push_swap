@@ -6,7 +6,7 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 14:42:49 by apintus           #+#    #+#             */
-/*   Updated: 2024/01/19 15:22:42 by apintus          ###   ########.fr       */
+/*   Updated: 2024/01/22 16:01:55 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ int main(int argc, char **argv)
 			sa(&a);
 		else if (stack_len(a) == 3)
 			sort_three(&a);
-		/*else
-			sort_stacks(&a, &b);*/
+		else
+			sort_big(&a, &b);
 	}
 
 	printf("\n");
