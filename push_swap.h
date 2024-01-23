@@ -6,7 +6,7 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 13:12:57 by apintus           #+#    #+#             */
-/*   Updated: 2024/01/22 16:41:37 by apintus          ###   ########.fr       */
+/*   Updated: 2024/01/23 12:04:01 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ t_stack_node	*find_last(t_stack_node *stack);
 bool	stack_sorted(t_stack_node *stack);
 int	stack_len(t_stack_node *stack);
 t_stack_node	*find_max(t_stack_node *stack);
+t_stack_node	*find_min(t_stack_node *stack);
 
 //commands
 void	swap(t_stack_node **stack);
