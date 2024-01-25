@@ -6,7 +6,7 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 16:45:28 by apintus           #+#    #+#             */
-/*   Updated: 2024/01/23 17:30:09 by apintus          ###   ########.fr       */
+/*   Updated: 2024/01/25 17:16:32 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,16 @@ void	refresh_target_a(t_stack_node *a, t_stack_node *b)
 			if (current_b->nbr < a->nbr && current_b->nbr > best_match) //the closest smaller nbr
 			{
 				best_match = current_b->nbr;
+				//printf("SIUUUUU {%ld} ", best_match);
 				target = current_b;
 			}
 			current_b = current_b->next;
 		}
-		if (best_match = LONG_MIN)
+		if (best_match == LONG_MIN)
 			a->target = find_max(b);
 		else
 			a->target = target;
+		//printf(" NEXT ");
 		a = a->next;
 	}
 }
@@ -91,14 +93,19 @@ void	set_cheapest(t_stack_node *a)
 	a = a->next;
 	while(a)
 	{
+		a->cheapest = false;
 		if (a->cost < cheap)
-		[
-
-		]
+		{
+			current_cheap->cheapest = false;
+			current_cheap = a;
+			cheap = a->cost;
+			current_cheap->cheapest = true;
+		}
+		a = a->next;
 	}
 }
 
-void	refresh_node_a(t_stack_node *a, t_stack_node *b)
+void	refresh_a(t_stack_node *a, t_stack_node *b)
 {
 	refresh_index(a);
 	refresh_index(b);

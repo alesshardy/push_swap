@@ -6,7 +6,7 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 11:37:54 by apintus           #+#    #+#             */
-/*   Updated: 2024/01/18 18:12:52 by apintus          ###   ########.fr       */
+/*   Updated: 2024/01/25 16:40:17 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,6 @@ char	*concatenate_arg(char **argv, int argc)
 		current_index += (ft_strlen(argv[i]) + 1);
 	}
 	combined_arg[current_index] = '\0';
-	printf("%s\n\n", combined_arg); // a retirer
+	printf("(%s)\n\n", combined_arg); // a retirer
 	return (combined_arg);
 }

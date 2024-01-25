@@ -6,7 +6,7 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 15:34:38 by apintus           #+#    #+#             */
-/*   Updated: 2024/01/19 15:51:38 by apintus          ###   ########.fr       */
+/*   Updated: 2024/01/25 17:26:57 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,15 @@ void	push(t_stack_node **src, t_stack_node **dest)
 
 }
 
-void	pa(t_stack_node **b, t_stack_node**a)
+void	pb(t_stack_node **b, t_stack_node**a)
 {
 	push(b, a);
-	printf("pa\n");
+	printf("pb\n");
 }
 
-void	pb(t_stack_node **a, t_stack_node**b)
+void	pa(t_stack_node **a, t_stack_node**b)
 {
 	push(a, b);
-	printf("pb\n");
+	printf("pa\n");
 }
 

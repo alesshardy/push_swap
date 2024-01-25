@@ -6,7 +6,7 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 13:12:57 by apintus           #+#    #+#             */
-/*   Updated: 2024/01/23 12:04:01 by apintus          ###   ########.fr       */
+/*   Updated: 2024/01/25 17:29:45 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,20 @@ void	push(t_stack_node **src, t_stack_node **dest);
 void	pa(t_stack_node **b, t_stack_node**a);
 void	pb(t_stack_node **a, t_stack_node**b);
 
+//refresh
+void	refresh_a(t_stack_node *a, t_stack_node *b);
+void	cost_a(t_stack_node *a, t_stack_node *b);
+void	refresh_target_a(t_stack_node *a, t_stack_node *b);
+void	refresh_index(t_stack_node *stack);
+
+void	refresh_b(t_stack_node *b, t_stack_node *a);
+void	refresh_target_b(t_stack_node *a, t_stack_node *b);
 
 //algo
 void	sort_three(t_stack_node **a);
+void	sort_big(t_stack_node **a, t_stack_node **b);
+
+//VISUEL a SUPPRIME
+void	visual_stack(t_stack_node *a, t_stack_node *b);
 
 #endif
