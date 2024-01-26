@@ -6,7 +6,7 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 15:59:54 by apintus           #+#    #+#             */
-/*   Updated: 2024/01/26 12:46:35 by apintus          ###   ########.fr       */
+/*   Updated: 2024/01/26 18:22:14 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,6 +163,8 @@ void	sort_big(t_stack_node **a, t_stack_node **b)
 		refresh_a(*a, *b);
 		push_a_to_b(a, b);
 	}
+	refresh_index(*a);
+	printf("HELLO\n");
 	sort_three(a);
 	visual_stack(*a, *b); //a suprrimer
 	while(*b)

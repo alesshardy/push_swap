@@ -6,7 +6,7 @@
 #    By: apintus <apintus@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/23 17:16:05 by apintus           #+#    #+#              #
-#    Updated: 2024/01/26 14:13:34 by apintus          ###   ########.fr        #
+#    Updated: 2024/01/26 14:17:05 by apintus          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRCS =	concatenate_arg.c\
 		refresh.c\
 		reverse_rotate.c\
 		sort_big.c\
-		sort_thre.c\
+		sort_three.c\
 		swap.c\
 		utils_stack.c\
 		visulalize_stack.c\
@@ -36,7 +36,7 @@ CC = cc
 RM = rm -f
 AR = ar rcs
 CFLAGS = -Wall -Wextra -Werror
-NAME = push_swap
+NAME = push_swap.a
 
 ########################################################
 ## RULES
