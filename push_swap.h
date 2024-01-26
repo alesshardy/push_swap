@@ -6,7 +6,7 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 13:12:57 by apintus           #+#    #+#             */
-/*   Updated: 2024/01/25 17:29:45 by apintus          ###   ########.fr       */
+/*   Updated: 2024/01/26 12:51:05 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,10 +89,15 @@ void	refresh_index(t_stack_node *stack);
 
 void	refresh_b(t_stack_node *b, t_stack_node *a);
 void	refresh_target_b(t_stack_node *a, t_stack_node *b);
+void	set_cheapest(t_stack_node *a);
 
 //algo
 void	sort_three(t_stack_node **a);
 void	sort_big(t_stack_node **a, t_stack_node **b);
+void	to_the_top(t_stack_node **a);
+void	push_a_to_b(t_stack_node **a,t_stack_node **b);
+void	push_b_to_a(t_stack_node **a,t_stack_node **b);
+
 
 //VISUEL a SUPPRIME
 void	visual_stack(t_stack_node *a, t_stack_node *b);

@@ -6,7 +6,7 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 15:59:54 by apintus           #+#    #+#             */
-/*   Updated: 2024/01/25 17:38:16 by apintus          ###   ########.fr       */
+/*   Updated: 2024/01/26 12:46:35 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	push_a_to_b(t_stack_node **a,t_stack_node **b)
 {
 	t_stack_node *cheapest;
 
+	cheapest = NULL;
 	while(*a)
 	{
 		if ((*a)->cheapest == true)
@@ -103,91 +104,45 @@ void	push_a_to_b(t_stack_node **a,t_stack_node **b)
 
 void	push_b_to_a(t_stack_node **a,t_stack_node **b)
 {
-	t_stack_node *cheapest;
+	t_stack_node *target;
 
-	while(*b)
+	target = (*b)->target;
+	printf("TARGET [%d] TARGET\n", target->nbr);
+	while (target->index != 0)
 	{
-		if ((*b)->cheapest == true)
+
+		if (target->above_median == true)
 		{
-			cheapest = *b;
-			printf("CHEAP [%d] CHEAP\n", (*b)->nbr);
-			printf("TARGET [%d] TARGET\n", (*b)->target->nbr);
-			break;
-		}
-		(*b) = (*b)->next;
-	}
-	while (cheapest->index != 0 || cheapest->target->index != 0)
-	{
-		if(cheapest->above_median == true && cheapest->target->above_median == true)
-		{
-			while((cheapest->index != 0 && cheapest->target->index != 0))
-			{
-				rr(a, b);
-				refresh_index(*a);
-				refresh_index(*b);
-			}
-			if (cheapest->index != 0)
-				while (cheapest->index != 0)
-				{
-					rb(b);
-					refresh_index(*b);
-				}
-			else
-				while (cheapest->target->index != 0)
-				{
-					ra(a);
-					refresh_index(*a);
-				}
-		}
-		else if ((cheapest->above_median == false && cheapest->target->above_median == false))
-		{
-			while((cheapest->index != 0 && cheapest->target->index != 0))
-			{
-				rrr(a, b);
-				refresh_index(*a);
-				refresh_index(*b);
-			}
-			if (cheapest->index != 0)
-				while (cheapest->index != 0)
-				{
-					rrb(b);
-					refresh_index(*b);
-				}
-			else
-				while (cheapest->target->index != 0)
-				{
-					rra(a);
-					refresh_index(*a);
-				}
-		}
-		else if (((cheapest->above_median == true && cheapest->target->above_median == false)))
-		{
-			while (cheapest->index != 0)
-			{
-					rb(b);
-					refresh_index(*b);
-			}
-			while (cheapest->target->index != 0)
-			{
-					rra(a);
-					refresh_index(*a);
-			}
+			ra(a);
+			refresh_index(*a);
 		}
 		else
 		{
-			while (cheapest->index != 0)
-			{
-					rrb(b);
-					refresh_index(*b);
-			}
-			while (cheapest->target->index != 0)
-			{
-					ra(a);
-					refresh_index(*a);
-			}
+			rra(a);
+			refresh_index(*a);
 		}
 	}
 	pb(b, a);
+}
+
+void	to_the_top(t_stack_node **a)
+{
+	t_stack_node *min;
+
+	min = find_min(*a);
+	while (min->index != 0)
+	{
+		if (min->above_median == true)
+		{
+			ra(a);
+			refresh_index(*a);
+		}
+		else
+		{
+			rra(a);
+			refresh_index(*a);
+		}
+	}
 }
 
 void	sort_big(t_stack_node **a, t_stack_node **b)
@@ -210,12 +165,13 @@ void	sort_big(t_stack_node **a, t_stack_node **b)
 	}
 	sort_three(a);
 	visual_stack(*a, *b); //a suprrimer
-	while(b)
+	while(*b)
 	{
 		visual_stack(*a, *b); //a suprrimer
 		refresh_b(*a, *b);
 		push_b_to_a(a, b);
 	}
 	refresh_index(*a);
-	/*min_on_top(a);*/
+	to_the_top(a);
+	visual_stack(*a, *b); //a suprrimer
 }

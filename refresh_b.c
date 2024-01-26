@@ -6,7 +6,7 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 17:14:07 by apintus           #+#    #+#             */
-/*   Updated: 2024/01/25 17:29:16 by apintus          ###   ########.fr       */
+/*   Updated: 2024/01/26 12:30:47 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ void	refresh_target_b(t_stack_node *a, t_stack_node *b)
 	}
 }
 
-void	refresh_b(t_stack_node *b, t_stack_node *a)
+void	refresh_b(t_stack_node *a, t_stack_node *b)
 {
 	refresh_index(a);
 	refresh_index(b);
-	refresh_target_a(a, b);
+	refresh_target_b(a, b);
 }
