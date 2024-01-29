@@ -6,7 +6,7 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 14:42:49 by apintus           #+#    #+#             */
-/*   Updated: 2024/01/26 14:39:04 by apintus          ###   ########.fr       */
+/*   Updated: 2024/01/29 17:39:21 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,6 @@ int main(int argc, char **argv)
 	}
 
 	//visual_stack(a, b);//visu a supprime
-
 	free_stack(&a);
+	return(0);
 }

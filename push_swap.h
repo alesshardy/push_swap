@@ -6,7 +6,7 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 13:12:57 by apintus           #+#    #+#             */
-/*   Updated: 2024/01/26 12:51:05 by apintus          ###   ########.fr       */
+/*   Updated: 2024/01/29 17:45:15 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdbool.h>
 # include <unistd.h>
 # include <stdio.h> //printf a suprr
+# include <stddef.h>
 
 typedef struct s_stack_node
 {
@@ -82,9 +83,9 @@ void	pa(t_stack_node **b, t_stack_node**a);
 void	pb(t_stack_node **a, t_stack_node**b);
 
 //refresh
-void	refresh_a(t_stack_node *a, t_stack_node *b);
+void	refresh(t_stack_node *a, t_stack_node *b);
 void	cost_a(t_stack_node *a, t_stack_node *b);
-void	refresh_target_a(t_stack_node *a, t_stack_node *b);
+void	refresh_target(t_stack_node *a, t_stack_node *b);
 void	refresh_index(t_stack_node *stack);
 
 void	refresh_b(t_stack_node *b, t_stack_node *a);
@@ -95,7 +96,7 @@ void	set_cheapest(t_stack_node *a);
 void	sort_three(t_stack_node **a);
 void	sort_big(t_stack_node **a, t_stack_node **b);
 void	to_the_top(t_stack_node **a);
-void	push_a_to_b(t_stack_node **a,t_stack_node **b);
+void	push_a_to_b(t_stack_node **a,t_stack_node **b, int median);
 void	push_b_to_a(t_stack_node **a,t_stack_node **b);
 
 
