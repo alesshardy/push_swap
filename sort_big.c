@@ -6,27 +6,28 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 15:59:54 by apintus           #+#    #+#             */
-/*   Updated: 2024/01/26 18:22:14 by apintus          ###   ########.fr       */
+/*   Updated: 2024/01/29 14:29:03 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 void	push_a_to_b(t_stack_node **a,t_stack_node **b)
 {
 	t_stack_node *cheapest;
+	t_stack_node *tempA;
 
 	cheapest = NULL;
-	while(*a)
+	tempA = (*a);
+	while(tempA)
 	{
-		if ((*a)->cheapest == true)
+		if ((tempA)->cheapest == true)
 		{
-			cheapest = *a;
-			printf("CHEAP [%d] CHEAP\n", (*a)->nbr);
-			printf("TARGET [%d] TARGET\n", (*a)->target->nbr);
+			cheapest = tempA;
+			//printf("CHEAP [%d] CHEAP\n", (tempA)->nbr);
+			//printf("TARGET [%d] TARGET\n", (tempA)->target->nbr);
 			break;
 		}
-		(*a) = (*a)->next;
+		(tempA) = (tempA)->next;
 	}
 	while (cheapest->index != 0 || cheapest->target->index != 0)
 	{
@@ -99,7 +100,7 @@ void	push_a_to_b(t_stack_node **a,t_stack_node **b)
 			}
 		}
 	}
-	pa(a, b);
+	pb(a, b);
 }
 
 void	push_b_to_a(t_stack_node **a,t_stack_node **b)
@@ -107,7 +108,7 @@ void	push_b_to_a(t_stack_node **a,t_stack_node **b)
 	t_stack_node *target;
 
 	target = (*b)->target;
-	printf("TARGET [%d] TARGET\n", target->nbr);
+	//printf("TARGET [%d] TARGET\n", target->nbr);
 	while (target->index != 0)
 	{
 
@@ -122,7 +123,7 @@ void	push_b_to_a(t_stack_node **a,t_stack_node **b)
 			refresh_index(*a);
 		}
 	}
-	pb(b, a);
+	pa(b, a);
 }
 
 void	to_the_top(t_stack_node **a)
@@ -150,30 +151,30 @@ void	sort_big(t_stack_node **a, t_stack_node **b)
 	int	len_a;
 
 	len_a = stack_len(*a);
-	visual_stack(*a, *b);
+	//visual_stack(*a, *b);
 	if (len_a-- > 3 && !stack_sorted(*a))
-		pa(a, b);
-	visual_stack(*a, *b);
+		pb(a, b);
+	//visual_stack(*a, *b);
 	if (len_a-- > 3 && !stack_sorted(*a))
-		pa(a, b);
-	visual_stack(*a, *b); //a suprrimer
+		pb(a, b);
+	//visual_stack(*a, *b); //a suprrimer
 	while (len_a-- > 3 && !stack_sorted(*a))
 	{
-		visual_stack(*a, *b); //a suprrimer
+		//visual_stack(*a, *b); //a suprrimer
 		refresh_a(*a, *b);
 		push_a_to_b(a, b);
 	}
-	refresh_index(*a);
-	printf("HELLO\n");
+	//visual_stack(*a, *b); //a suprrimer
+	//printf("HELLO\n");
 	sort_three(a);
-	visual_stack(*a, *b); //a suprrimer
+	//visual_stack(*a, *b); //a suprrimer
 	while(*b)
 	{
-		visual_stack(*a, *b); //a suprrimer
+		//visual_stack(*a, *b); //a suprrimer
 		refresh_b(*a, *b);
 		push_b_to_a(a, b);
 	}
 	refresh_index(*a);
 	to_the_top(a);
-	visual_stack(*a, *b); //a suprrimer
+	//visual_stack(*a, *b); //a suprrimer
 }

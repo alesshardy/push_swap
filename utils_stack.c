@@ -6,7 +6,7 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:43:20 by apintus           #+#    #+#             */
-/*   Updated: 2024/01/26 18:26:30 by apintus          ###   ########.fr       */
+/*   Updated: 2024/01/26 15:07:44 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ t_stack_node	*find_min(t_stack_node *stack)
 	while (stack)
 	{
 		temp = stack->nbr;
-		printf("{%d}\n", temp);
+		//printf("{%d}\n", temp);
 		if (temp < min)
 		{
 			min = temp;
@@ -99,6 +99,6 @@ t_stack_node	*find_min(t_stack_node *stack)
 		}
 		stack = stack->next;
 	}
-	printf("[%d]\n", lower->nbr);
+	//printf("[%d]\n", lower->nbr);
 	return (lower);
 }

@@ -6,7 +6,7 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 14:42:49 by apintus           #+#    #+#             */
-/*   Updated: 2024/01/26 12:48:08 by apintus          ###   ########.fr       */
+/*   Updated: 2024/01/26 14:39:04 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ int main(int argc, char **argv)
 		return (1);
 	else
 		argv = ft_split(concatenate_arg(argv, argc), ' ');
-	int i = 0;
+	/*int i = 0;
 	while(argv[i])
 	{
 		printf("%s\n", argv[i]);
 		i++;
 	}
-	printf("\n");
+	printf("\n");*/
 
 	init_stack_a(&a, argv);
 	if (!stack_sorted(a))
@@ -43,7 +43,7 @@ int main(int argc, char **argv)
 			sort_big(&a, &b);
 	}
 
-	visual_stack(a, b);//visu a supprime
+	//visual_stack(a, b);//visu a supprime
 
 	free_stack(&a);
 }
