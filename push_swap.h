@@ -6,7 +6,7 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 13:12:57 by apintus           #+#    #+#             */
-/*   Updated: 2024/01/30 13:50:40 by apintus          ###   ########.fr       */
+/*   Updated: 2024/01/30 15:29:56 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,10 @@ typedef struct s_stack_node
 }	t_stack_node;
 
 //PARSSING
-char			*concatenate_arg(char **argv, int argc);
+char			*concatenate_arg(char **argv, int argc, t_stack_node **a);
 char			*ft_strcpy(char *dest, char *src);
 int				ft_strlen(char *str);
+bool			ft_check_looong(char *str);
 
 char			**ft_split(char const *s, char c);
 char			*ft_word(char const *s, char c);

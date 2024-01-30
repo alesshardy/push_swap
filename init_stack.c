@@ -6,11 +6,25 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 15:56:08 by apintus           #+#    #+#             */
-/*   Updated: 2024/01/30 11:24:54 by apintus          ###   ########.fr       */
+/*   Updated: 2024/01/30 15:33:01 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+bool	ft_check_looong(char *str)
+{
+	while (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\v'
+		||*str == '\f' || *str == '\r' )
+		str++;
+	if (*str == '-' || *str == '+')
+		str++;
+	while (*str == '0')
+		str++;
+	if (ft_strlen(str) > 11)
+		return (true);
+	return (false);
+}
 
 long	ft_atol(char *str)
 {
@@ -69,7 +83,7 @@ void	init_stack_a(t_stack_node **a, char **argv)
 	{
 		if (error_syntax(argv[i]))
 			free_errors(a);
-		if (ft_strlen(argv[i]) > 10)
+		if (ft_check_looong(argv[i]))
 			free_errors(a);
 		nb = ft_atol(argv[i]);
 		if (nb > INT_MAX || nb < INT_MIN)

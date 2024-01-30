@@ -6,7 +6,7 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 14:42:49 by apintus           #+#    #+#             */
-/*   Updated: 2024/01/30 13:37:32 by apintus          ###   ########.fr       */
+/*   Updated: 2024/01/30 14:57:06 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 	b = NULL;
 	if (argc == 1)
 		return (1);
-	one_arg = concatenate_arg(argv, argc);
+	one_arg = concatenate_arg(argv, argc, &a);
 	if (!one_arg)
 		return (0);
 	argv = ft_split(one_arg, ' ');

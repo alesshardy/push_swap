@@ -6,18 +6,32 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 11:37:54 by apintus           #+#    #+#             */
-/*   Updated: 2024/01/30 11:21:30 by apintus          ###   ########.fr       */
+/*   Updated: 2024/01/30 15:33:15 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+bool	only_space(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] != ' ')
+			return (false);
+		i++;
+	}
+	return (true);
+}
 
 int	ft_strlen(char *str)
 {
 	int	i;
 
 	i = 0;
-	while (str[i])
+	while (*str++)
 		i++;
 	return (i);
 }
@@ -31,7 +45,7 @@ char	*ft_strcpy(char *dest, char *src)
 	return (dest);
 }
 
-char	*concatenate_arg(char **argv, int argc)
+char	*concatenate_arg(char **argv, int argc, t_stack_node **a)
 {
 	int		i;
 	size_t	len;
@@ -49,6 +63,8 @@ char	*concatenate_arg(char **argv, int argc)
 	i = 0;
 	while (++i < argc)
 	{
+		if (only_space(argv[i]))
+			return (free_errors(a), NULL);
 		ft_strcpy(combined_arg + current_index, argv[i]);
 		current_index += (ft_strlen(argv[i]) + 1);
 	}
