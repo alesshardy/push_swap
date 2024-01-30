@@ -6,7 +6,7 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 14:46:17 by apintus           #+#    #+#             */
-/*   Updated: 2024/01/19 15:17:16 by apintus          ###   ########.fr       */
+/*   Updated: 2024/01/30 11:35:52 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	reverse_rotate(t_stack_node **stack)
 	t_stack_node	*last_node;
 
 	if (!*stack || !(*stack)->next)
-		return;
+		return ;
 	last_node = find_last(*stack);
 	last_node->previous->next = NULL;
 	last_node->next = (*stack);
@@ -29,18 +29,18 @@ void	reverse_rotate(t_stack_node **stack)
 void	rra(t_stack_node **a)
 {
 	reverse_rotate(a);
-	printf("rra\n");
+	write(1, "rra\n", 4);
 }
 
 void	rrb(t_stack_node **b)
 {
 	reverse_rotate(b);
-	printf("rrb\n");
+	write(1, "rrb\n", 4);
 }
 
 void	rrr(t_stack_node **a, t_stack_node **b)
 {
 	reverse_rotate(a);
 	reverse_rotate(b);
-	printf("rrr\n");
+	write(1, "rrr\n", 4);
 }

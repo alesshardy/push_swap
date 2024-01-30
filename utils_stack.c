@@ -6,7 +6,7 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:43:20 by apintus           #+#    #+#             */
-/*   Updated: 2024/01/26 15:07:44 by apintus          ###   ########.fr       */
+/*   Updated: 2024/01/30 11:42:51 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ int	stack_len(t_stack_node *stack)
 {
 	int	len;
 
-	if(!stack)
-		return(0);
+	if (!stack)
+		return (0);
 	len = 0;
 	while (stack)
 	{
@@ -29,7 +29,7 @@ int	stack_len(t_stack_node *stack)
 
 t_stack_node	*find_last(t_stack_node *stack)
 {
-	if(!stack)
+	if (!stack)
 		return (NULL);
 	while (stack->next)
 		stack = stack->next;
@@ -38,11 +38,11 @@ t_stack_node	*find_last(t_stack_node *stack)
 
 bool	stack_sorted(t_stack_node *stack)
 {
-	if(!stack)
+	if (!stack)
 		return (1);
 	while (stack->next)
 	{
-		if(stack->nbr > stack->next->nbr)
+		if (stack->nbr > stack->next->nbr)
 			return (false);
 		stack = stack->next;
 	}
@@ -51,20 +51,18 @@ bool	stack_sorted(t_stack_node *stack)
 
 t_stack_node	*find_max(t_stack_node *stack)
 {
-	int	max;
-	int	temp;
+	int				max;
+	int				temp;
 	t_stack_node	*higher;
 
-
 	if (!stack)
-		return(NULL);
+		return (NULL);
 	max = stack->nbr;
 	higher = stack;
 	stack = stack->next;
 	while (stack)
 	{
 		temp = stack->nbr;
-		//printf("{%d}\n", temp);
 		if (temp > max)
 		{
 			max = temp;
@@ -72,26 +70,23 @@ t_stack_node	*find_max(t_stack_node *stack)
 		}
 		stack = stack->next;
 	}
-	//printf("[%d]\n", higher->nbr);
 	return (higher);
 }
 
 t_stack_node	*find_min(t_stack_node *stack)
 {
-	int	min;
-	int	temp;
+	int				min;
+	int				temp;
 	t_stack_node	*lower;
 
-
 	if (!stack)
-		return(NULL);
+		return (NULL);
 	min = stack->nbr;
 	lower = stack;
 	stack = stack->next;
 	while (stack)
 	{
 		temp = stack->nbr;
-		//printf("{%d}\n", temp);
 		if (temp < min)
 		{
 			min = temp;
@@ -99,6 +94,5 @@ t_stack_node	*find_min(t_stack_node *stack)
 		}
 		stack = stack->next;
 	}
-	//printf("[%d]\n", lower->nbr);
 	return (lower);
 }
