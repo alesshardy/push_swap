@@ -6,7 +6,7 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 16:44:28 by apintus           #+#    #+#             */
-/*   Updated: 2024/01/30 13:25:24 by apintus          ###   ########.fr       */
+/*   Updated: 2024/01/18 15:38:04 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	strings = (char **)malloc(sizeof(char *) * (count_strings(s, c) + 1));
 	if (!strings)
-		return (NULL);
+		return (ft_free(strings, 0));
 	i = 0;
 	while (*s != '\0')
 	{

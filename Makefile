@@ -6,38 +6,55 @@
 #    By: apintus <apintus@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/23 17:16:05 by apintus           #+#    #+#              #
-#    Updated: 2024/01/26 16:26:08 by apintus          ###   ########.fr        #
+#    Updated: 2024/01/26 14:17:05 by apintus          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+#######################################################
+## SOURCES
 
-NAME = push_swap
-ARCHIVE = push_swap.a
-CC = gcc
-CFLAGS = -Wall -Werror -Wextra -g
-MAKE_LIB = ar -rcs
+SRCS =	concatenate_arg.c\
+		error.c\
+		ft_split.c\
+		init_stack.c\
+		main.c\
+		refresh_b.c\
+		refresh.c\
+		reverse_rotate.c\
+		sort_big.c\
+		sort_three.c\
+		swap.c\
+		utils_stack.c\
+		visulalize_stack.c\
 
-SRCS = $(wildcard *.c)
-OBJS = $(SRCS:.c=.o)
+OBJS =	$(SRCS:.c=.o)
 
-all : $(NAME)
+#######################################################
+## ARGUMENTS
 
-$(NAME) : $(ARCHIVE)
-	$(CC) $< -o $@
+CC = cc
+RM = rm -f
+AR = ar rcs
+CFLAGS = -Wall -Wextra -Werror
+NAME = push_swap.a
 
-$(ARCHIVE) : $(OBJS)
-	$(MAKE_LIB) $(ARCHIVE) $^
+########################################################
+## RULES
 
-%.o : %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+all:	$(NAME)
 
+.c.o:
+	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
-clean :
-	rm -f $(OBJS) $(ARCHIVE)
+$(NAME): $(OBJS)
+		$(AR) $(NAME) $(OBJS)
 
-fclean : clean
-	rm -f $(NAME)
+clean:
+		$(RM) $(OBJS)
 
-re : fclean all
+fclean:	clean
+		$(RM) $(NAME)
 
-.PHONY : all clean fclea re
+re:	fclean all
+
+.PHONY:	all clean fclean re

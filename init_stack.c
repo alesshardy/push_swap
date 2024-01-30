@@ -6,39 +6,24 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 15:56:08 by apintus           #+#    #+#             */
-/*   Updated: 2024/01/30 15:33:01 by apintus          ###   ########.fr       */
+/*   Updated: 2024/01/26 17:48:47 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-bool	ft_check_looong(char *str)
-{
-	while (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\v'
-		||*str == '\f' || *str == '\r' )
-		str++;
-	if (*str == '-' || *str == '+')
-		str++;
-	while (*str == '0')
-		str++;
-	if (ft_strlen(str) > 11)
-		return (true);
-	return (false);
-}
-
 long	ft_atol(char *str)
 {
-	long	result;
-	int		sign;
+	long result;
+	int	sign;
 
 	result = 0;
 	sign = 1;
-	while (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\v'
-		||*str == '\f' || *str == '\r' )
+	while (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\v' || *str == '\f' || *str == '\r' )
 		str++;
 	if (*str == '-')
 		sign = -1;
-	if (*str == '-' || *str == '+')
+	if (*str =='-' || *str == '+')
 		str++;
 	while (*str >= '0' && *str <= '9')
 	{
@@ -54,13 +39,13 @@ void	append_node(t_stack_node **stack, int nb)
 	t_stack_node	*last_node;
 
 	if (!stack)
-		return ;
+		return;
 	node = malloc(sizeof(t_stack_node));
 	if (!node)
-		return ;
+		return;
 	node->next = NULL;
 	node->nbr = nb;
-	if (!(*stack))
+	if(!(*stack))
 	{
 		*stack = node;
 		node->previous = NULL;
@@ -75,7 +60,7 @@ void	append_node(t_stack_node **stack, int nb)
 
 void	init_stack_a(t_stack_node **a, char **argv)
 {
-	int		i;
+	int	i;
 	long	nb;
 
 	i = 0;
@@ -83,7 +68,7 @@ void	init_stack_a(t_stack_node **a, char **argv)
 	{
 		if (error_syntax(argv[i]))
 			free_errors(a);
-		if (ft_check_looong(argv[i]))
+		if (ft_strlen(argv[i]) > 11)
 			free_errors(a);
 		nb = ft_atol(argv[i]);
 		if (nb > INT_MAX || nb < INT_MIN)
