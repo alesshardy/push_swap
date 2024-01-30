@@ -6,11 +6,22 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 15:59:54 by apintus           #+#    #+#             */
-/*   Updated: 2024/01/30 11:41:12 by apintus          ###   ########.fr       */
+/*   Updated: 2024/01/30 13:12:36 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+t_stack_node	*get_cheapest(t_stack_node *stack)
+{
+	while (stack)
+	{
+		if (stack->cheapest == true)
+			return (stack);
+		stack = stack->next;
+	}
+	return (NULL);
+}
 
 void	push_a_to_b(t_stack_node **a, t_stack_node **b, int median)
 {
@@ -26,89 +37,21 @@ void	push_a_to_b(t_stack_node **a, t_stack_node **b, int median)
 void	push_b_to_a(t_stack_node **a, t_stack_node **b)
 {
 	t_stack_node	*cheapest;
-	t_stack_node	*temp_b;
 
-	cheapest = NULL;
-	temp_b = (*b);
-	while (temp_b)
-	{
-		if ((temp_b)->cheapest == true)
-		{
-			cheapest = temp_b;
-			break ;
-		}
-		(temp_b) = (temp_b)->next;
-	}
+	cheapest = get_cheapest(*b);
 	while (cheapest->index != 0 || cheapest->target->index != 0)
 	{
-		if (cheapest->above_median == true && cheapest->target->above_median == true)
-		{
-			while ((cheapest->index != 0 && cheapest->target->index != 0))
-			{
-				rr(a, b);
-				refresh_index(*a);
-				refresh_index(*b);
-			}
-			if (cheapest->index != 0)
-				while (cheapest->index != 0)
-				{
-					rb(b);
-					refresh_index(*b);
-				}
-			else
-				while (cheapest->target->index != 0)
-				{
-					ra(a);
-					refresh_index(*a);
-				}
-		}
-		else if ((cheapest->above_median == false && cheapest->target->above_median == false))
-		{
-			while((cheapest->index != 0 && cheapest->target->index != 0))
-			{
-				rrr(a, b);
-				refresh_index(*a);
-				refresh_index(*b);
-			}
-			if (cheapest->index != 0)
-				while (cheapest->index != 0)
-				{
-					rrb(b);
-					refresh_index(*b);
-				}
-			else
-				while (cheapest->target->index != 0)
-				{
-					rra(a);
-					refresh_index(*a);
-				}
-		}
-		else if (((cheapest->above_median == true && cheapest->target->above_median == false)))
-		{
-			while (cheapest->index != 0)
-			{
-				rb(b);
-				refresh_index(*b);
-			}
-			while (cheapest->target->index != 0)
-			{
-				rra(a);
-				refresh_index(*a);
-			}
-		}
+		if (cheapest->above_median == true
+			&& cheapest->target->above_median == true)
+			move_both_above_median(a, b, cheapest);
+		else if ((cheapest->above_median == false
+				&& cheapest->target->above_median == false))
+			move_both_under_median(a, b, cheapest);
+		else if (((cheapest->above_median == true
+					&& cheapest->target->above_median == false)))
+			move_a_above_and_b_below_median(a, b, cheapest);
 		else
-		{
-			while (cheapest->index != 0)
-			{
-				rrb(b);
-				refresh_index(*b);
-			}
-			while (cheapest->target->index != 0)
-			{
-				ra(a);
-				refresh_index(*a);
-			}
-		}
+			move_a_below_and_b_above_median(a, b, cheapest);
 	}
 	pa(b, a);
 }
