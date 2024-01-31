@@ -6,7 +6,7 @@
 #    By: apintus <apintus@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/23 17:16:05 by apintus           #+#    #+#              #
-#    Updated: 2024/01/31 11:42:41 by apintus          ###   ########.fr        #
+#    Updated: 2024/01/31 15:45:45 by apintus          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,17 +36,22 @@ SRCS = concatenate_arg.c\
 				sort_big.c\
 				sort.c\
 				swap.c\
-				utils_stack.c\
+				utils_stack.c
 
 OBJS = $(SRCS:.c=.o)
+
+# LIBFT
+LIBFT_DIR = libft
+LIBFT_MAKE_COMMAND = make -s -C $(LIBFT_DIR)
+LIBFT_PATH = $(LIBFT_DIR)/libft.a
 
 ##########################################################
 ## RULES
 
-all : $(NAME)
+all : $(NAME) $(LIBFT_PATH)
 
-$(NAME) : $(ARCHIVE)
-	$(CC) $(ARCHIVE) -o $(NAME)
+$(NAME) : $(ARCHIVE) $(LIBFT_PATH)
+	$(CC) $(ARCHIVE) $(LIBFT_PATH) -o $(NAME)
 
 $(ARCHIVE) : $(OBJS)
 	$(MAKE_LIB) $(ARCHIVE) $(OBJS)
@@ -54,12 +59,16 @@ $(ARCHIVE) : $(OBJS)
 %.o : %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
+$(LIBFT_PATH) :
+	$(LIBFT_MAKE_COMMAND)
 
 clean :
 	$(RM) $(OBJS) $(ARCHIVE)
+	$(LIBFT_MAKE_COMMAND) clean
 
 fclean : clean
 	$(RM) $(NAME)
+	$(LIBFT_MAKE_COMMAND) fclean
 
 re : fclean all
 

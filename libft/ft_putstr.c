@@ -1,43 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/19 12:06:20 by apintus           #+#    #+#             */
-/*   Updated: 2024/01/31 16:09:08 by apintus          ###   ########.fr       */
+/*   Created: 2023/11/27 12:14:18 by apintus           #+#    #+#             */
+/*   Updated: 2024/01/31 11:58:37 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	swap(t_stack_node **stack)
+size_t	ft_putstr(char *str)
 {
-	int	data;
+	size_t	len;
 
-	if (!*stack || !(*stack)->next)
-		return ;
-	data = (*stack)->nbr;
-	(*stack)->nbr = (*stack)->next->nbr;
-	(*stack)->next->nbr = data;
-}
-
-void	sa(t_stack_node **a)
-{
-	swap(a);
-	ft_printf("sa\n");
-}
-
-void	sb(t_stack_node **b)
-{
-	swap(b);
-	ft_printf("sb\n");
-}
-
-void	ss(t_stack_node **a, t_stack_node **b)
-{
-	swap(a);
-	swap(b);
-	ft_printf("ss\n");
+	len = 0;
+	while (*str)
+	{
+		ft_putchar((int)*str);
+		++len;
+		++str;
+	}
+	return (len);
 }

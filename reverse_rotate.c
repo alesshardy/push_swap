@@ -6,7 +6,7 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 14:46:17 by apintus           #+#    #+#             */
-/*   Updated: 2024/01/30 11:35:52 by apintus          ###   ########.fr       */
+/*   Updated: 2024/01/31 16:08:25 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,18 @@ void	reverse_rotate(t_stack_node **stack)
 void	rra(t_stack_node **a)
 {
 	reverse_rotate(a);
-	write(1, "rra\n", 4);
+	ft_printf("rra\n");
 }
 
 void	rrb(t_stack_node **b)
 {
 	reverse_rotate(b);
-	write(1, "rrb\n", 4);
+	ft_printf("rrb\n");;
 }
 
 void	rrr(t_stack_node **a, t_stack_node **b)
 {
 	reverse_rotate(a);
 	reverse_rotate(b);
-	write(1, "rrr\n", 4);
+	ft_printf("rrr\n");
 }

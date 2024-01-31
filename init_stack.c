@@ -6,7 +6,7 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 15:56:08 by apintus           #+#    #+#             */
-/*   Updated: 2024/01/30 15:33:01 by apintus          ###   ########.fr       */
+/*   Updated: 2024/01/31 16:01:46 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ bool	ft_check_looong(char *str)
 		str++;
 	while (*str == '0')
 		str++;
-	if (ft_strlen(str) > 11)
+	if (ft_strlen_p(str) > 11)
 		return (true);
 	return (false);
 }
@@ -73,7 +73,7 @@ void	append_node(t_stack_node **stack, int nb)
 	}
 }
 
-void	init_stack_a(t_stack_node **a, char **argv)
+void	init_stack_a(t_stack_node **a, char **argv, int argc)
 {
 	int		i;
 	long	nb;
@@ -82,14 +82,14 @@ void	init_stack_a(t_stack_node **a, char **argv)
 	while (argv[i])
 	{
 		if (error_syntax(argv[i]))
-			free_errors(a);
+			free_errors_init(a, argv, argc);
 		if (ft_check_looong(argv[i]))
-			free_errors(a);
+			free_errors_init(a, argv, argc);
 		nb = ft_atol(argv[i]);
 		if (nb > INT_MAX || nb < INT_MIN)
-			free_errors(a);
+			free_errors_init(a, argv, argc);
 		if (error_duplicate(*a, (int)nb))
-			free_errors(a);
+			free_errors_init(a, argv, argc);
 		append_node(a, (int)nb);
 		i++;
 	}

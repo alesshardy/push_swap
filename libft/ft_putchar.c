@@ -1,35 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/09 14:42:49 by apintus           #+#    #+#             */
-/*   Updated: 2024/01/31 15:58:01 by apintus          ###   ########.fr       */
+/*   Created: 2023/11/27 12:13:41 by apintus           #+#    #+#             */
+/*   Updated: 2024/01/31 11:58:28 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+size_t	ft_putchar(int c)
 {
-	t_stack_node	*a;
-	t_stack_node	*b;
-	char			*one_arg;
-
-	a = NULL;
-	b = NULL;
-	if (argc == 1)
-		return (1);
-	one_arg = concatenate_arg(argv, argc, &a);
-	argv = ft_split(one_arg, ' ');
-	if (!argv)
-		return (0);
-	free(one_arg);
-	init_stack_a(&a, argv, argc);
-	ft_free(argv, argc);
-	if (!stack_sorted(a))
-		sort(&a, &b);
-	free_stack(&a);
+	return (write(1, &c, 1));
 }
