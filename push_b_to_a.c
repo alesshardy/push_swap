@@ -6,7 +6,7 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 12:43:26 by apintus           #+#    #+#             */
-/*   Updated: 2024/01/30 13:49:38 by apintus          ###   ########.fr       */
+/*   Updated: 2024/02/01 14:15:51 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	move_both_above_median(t_stack_node **a, t_stack_node **b,
 {
 	while ((cheapest->index != 0 && cheapest->target->index != 0))
 	{
-		rr(a, b);
+		rr(a, b, true);
 		refresh_index(*a);
 		refresh_index(*b);
 	}
@@ -25,7 +25,7 @@ void	move_both_above_median(t_stack_node **a, t_stack_node **b,
 	{
 		while (cheapest->index != 0)
 		{
-			rb(b);
+			rb(b, true);
 			refresh_index(*b);
 		}
 	}
@@ -33,7 +33,7 @@ void	move_both_above_median(t_stack_node **a, t_stack_node **b,
 	{
 		while (cheapest->target->index != 0)
 		{
-			ra(a);
+			ra(a, true);
 			refresh_index(*a);
 		}
 	}
@@ -44,7 +44,7 @@ void	move_both_under_median(t_stack_node **a, t_stack_node **b,
 {
 	while ((cheapest->index != 0 && cheapest->target->index != 0))
 	{
-		rrr(a, b);
+		rrr(a, b, true);
 		refresh_index(*a);
 		refresh_index(*b);
 	}
@@ -52,7 +52,7 @@ void	move_both_under_median(t_stack_node **a, t_stack_node **b,
 	{
 		while (cheapest->index != 0)
 		{
-			rrb(b);
+			rrb(b, true);
 			refresh_index(*b);
 		}
 	}
@@ -60,7 +60,7 @@ void	move_both_under_median(t_stack_node **a, t_stack_node **b,
 	{
 		while (cheapest->target->index != 0)
 		{
-			rra(a);
+			rra(a, true);
 			refresh_index(*a);
 		}
 	}
@@ -71,12 +71,12 @@ void	move_a_above_and_b_below_median(t_stack_node **a, t_stack_node **b,
 {
 	while (cheapest->index != 0)
 	{
-		rb(b);
+		rb(b, true);
 		refresh_index(*b);
 	}
 	while (cheapest->target->index != 0)
 	{
-		rra(a);
+		rra(a, true);
 		refresh_index(*a);
 	}
 }
@@ -86,12 +86,12 @@ void	move_a_below_and_b_above_median(t_stack_node **a, t_stack_node **b,
 {
 	while (cheapest->index != 0)
 	{
-		rrb(b);
+		rrb(b, true);
 		refresh_index(*b);
 	}
 	while (cheapest->target->index != 0)
 	{
-		ra(a);
+		ra(a, true);
 		refresh_index(*a);
 	}
 }

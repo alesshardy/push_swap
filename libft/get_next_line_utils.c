@@ -6,7 +6,7 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 16:49:34 by apintus           #+#    #+#             */
-/*   Updated: 2024/01/31 13:03:04 by apintus          ###   ########.fr       */
+/*   Updated: 2024/02/02 12:53:26 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ char	*ft_strjoin_gnl(char *data, char *buffer)
 	int		i;
 	int		j;
 
-	join = malloc(sizeof(char) * ((ft_strlen(data) + ft_strlen(buffer)) + 1));
+	join = malloc(sizeof(char) * ((ft_strlen_gnl(data)
+					+ ft_strlen_gnl(buffer)) + 1));
 	if (join == NULL)
 		return (NULL);
 	i = 0;

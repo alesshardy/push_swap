@@ -6,7 +6,7 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 11:15:22 by apintus           #+#    #+#             */
-/*   Updated: 2024/01/31 12:50:15 by apintus          ###   ########.fr       */
+/*   Updated: 2024/02/02 12:52:52 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ char	*ft_update_data(char *old_data)
 		free (old_data);
 		return (NULL);
 	}
-	new_data = (char *)malloc(sizeof(char) * ((ft_strlen(old_data) - i) + 1));
+	new_data = (char *)malloc(sizeof(char)
+			* ((ft_strlen_gnl(old_data) - i) + 1));
 	if (new_data == NULL)
 		return (NULL);
 	j = 0;
@@ -89,7 +90,7 @@ char	*ft_fill(int fd, char *data)
 			return (NULL);
 		}
 		buffer[bytes_read] = '\0';
-		data = ft_strjoin(data, buffer);
+		data = ft_strjoin_gnl(data, buffer);
 	}
 	free(buffer);
 	return (data);

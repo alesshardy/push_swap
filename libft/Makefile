@@ -6,7 +6,7 @@
 #    By: apintus <apintus@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/14 12:20:45 by apintus           #+#    #+#              #
-#    Updated: 2024/01/31 13:00:17 by apintus          ###   ########.fr        #
+#    Updated: 2024/02/01 15:38:41 by apintus          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -89,12 +89,12 @@ GNL_OBJS = $(GNL:.c=.o)
 all : $(NAME)
 
 $(NAME) :
-	$(CC) $(CFLAGS) -c $(SRCS)
-	$(AR) $(NAME) $(OBJS)
+	$(CC) $(CFLAGS) -c $(SRCS) $(GNL)
+	$(AR) $(NAME) $(OBJS) $(GNL_OBJS)
 	$(RN) $(NAME)
 
-bonus : $(OBJS_BONUS) $(GNL_OBJS)
-		$(AR) $(NAME) $(OBJS_BONUS) $(GNL_OBJS)
+bonus : $(OBJS_BONUS)
+		$(AR) $(NAME) $(OBJS_BONUS)
 
 clean :
 	$(RM) $(OBJS) $(OBJS_BONUS) $(GNL_OBJS)

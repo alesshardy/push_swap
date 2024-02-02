@@ -6,7 +6,7 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 15:59:54 by apintus           #+#    #+#             */
-/*   Updated: 2024/01/30 16:11:43 by apintus          ###   ########.fr       */
+/*   Updated: 2024/02/01 14:14:47 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ t_stack_node	*get_cheapest(t_stack_node *stack)
 void	push_a_to_b(t_stack_node **a, t_stack_node **b, int median)
 {
 	if ((*a)->nbr < median)
-		pb(a, b);
+		pb(a, b, true);
 	else
 	{
-		pb(a, b);
-		rb(b);
+		pb(a, b, true);
+		rb(b, true);
 	}
 }
 
@@ -53,7 +53,7 @@ void	push_b_to_a(t_stack_node **a, t_stack_node **b)
 		else
 			move_a_below_and_b_above_median(a, b, cheapest);
 	}
-	pa(b, a);
+	pa(b, a, true);
 }
 
 void	to_the_top(t_stack_node **a)
@@ -65,12 +65,12 @@ void	to_the_top(t_stack_node **a)
 	{
 		if (min->above_median == true)
 		{
-			ra(a);
+			ra(a, true);
 			refresh_index(*a);
 		}
 		else
 		{
-			rra(a);
+			rra(a, true);
 			refresh_index(*a);
 		}
 	}

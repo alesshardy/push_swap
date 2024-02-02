@@ -6,7 +6,7 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 14:39:05 by apintus           #+#    #+#             */
-/*   Updated: 2024/01/31 16:08:45 by apintus          ###   ########.fr       */
+/*   Updated: 2024/02/01 14:08:13 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,24 @@ void	rotate(t_stack_node **stack)
 	last_node->next->next = NULL;
 }
 
-void	ra(t_stack_node **a)
+void	ra(t_stack_node **a, bool print)
 {
 	rotate(a);
-	ft_printf("ra\n");
+	if (print)
+		ft_printf("ra\n");
 }
 
-void	rb(t_stack_node **b)
+void	rb(t_stack_node **b, bool print)
 {
 	rotate(b);
-	ft_printf("rb\n");
+	if (print)
+		ft_printf("rb\n");
 }
 
-void	rr(t_stack_node **a, t_stack_node **b)
+void	rr(t_stack_node **a, t_stack_node **b, bool print)
 {
 	rotate(a);
 	rotate(b);
-	ft_printf("rr\n");
+	if (print)
+		ft_printf("rr\n");
 }

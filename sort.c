@@ -6,7 +6,7 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 14:23:55 by apintus           #+#    #+#             */
-/*   Updated: 2024/01/30 13:35:33 by apintus          ###   ########.fr       */
+/*   Updated: 2024/02/01 14:14:15 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,17 @@ void	sort_three(t_stack_node **a)
 
 	higher = find_max(*a);
 	if (higher == *a)
-		ra(a);
+		ra(a, true);
 	else if ((*a)->next == higher)
-		rra(a);
+		rra(a, true);
 	if ((*a)->nbr > (*a)->next->nbr)
-		sa(a);
+		sa(a, true);
 }
 
 void	sort(t_stack_node **a, t_stack_node **b)
 {
 	if (stack_len(*a) == 2)
-		sa(a);
+		sa(a, true);
 	else if (stack_len(*a) == 3)
 		sort_three(a);
 	else

@@ -1,49 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse_rotate.c                                   :+:      :+:    :+:   */
+/*   rotate_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/19 14:46:17 by apintus           #+#    #+#             */
-/*   Updated: 2024/02/01 14:07:24 by apintus          ###   ########.fr       */
+/*   Created: 2024/01/19 14:39:05 by apintus           #+#    #+#             */
+/*   Updated: 2024/02/02 12:08:13 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker_bonus.h"
 
-void	reverse_rotate(t_stack_node **stack)
+void	rotate(t_stack_node **stack)
 {
 	t_stack_node	*last_node;
 
 	if (!*stack || !(*stack)->next)
 		return ;
 	last_node = find_last(*stack);
-	last_node->previous->next = NULL;
-	last_node->next = (*stack);
-	last_node->previous = NULL;
-	(*stack) = last_node;
+	last_node->next = *stack;
+	*stack = (*stack)->next;
+	(*stack)->previous = NULL;
 	last_node->next->previous = last_node;
+	last_node->next->next = NULL;
 }
 
-void	rra(t_stack_node **a, bool print)
+void	ra(t_stack_node **a, bool print)
 {
-	reverse_rotate(a);
+	rotate(a);
 	if (print)
-		ft_printf("rra\n");
+		ft_printf("ra\n");
 }
 
-void	rrb(t_stack_node **b, bool print)
+void	rb(t_stack_node **b, bool print)
 {
-	reverse_rotate(b);
+	rotate(b);
 	if (print)
-		ft_printf("rrb\n");
+		ft_printf("rb\n");
 }
 
-void	rrr(t_stack_node **a, t_stack_node **b, bool print)
+void	rr(t_stack_node **a, t_stack_node **b, bool print)
 {
-	reverse_rotate(a);
-	reverse_rotate(b);
+	rotate(a);
+	rotate(b);
 	if (print)
-		ft_printf("rrr\n");
+		ft_printf("rr\n");
 }

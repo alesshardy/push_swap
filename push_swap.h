@@ -6,7 +6,7 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 13:12:57 by apintus           #+#    #+#             */
-/*   Updated: 2024/01/31 16:04:49 by apintus          ###   ########.fr       */
+/*   Updated: 2024/02/02 12:51:35 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,23 +68,23 @@ t_stack_node	*get_cheapest(t_stack_node *stack);
 
 //commands
 void			swap(t_stack_node **stack);
-void			sa(t_stack_node **a);
-void			sb(t_stack_node **b);
-void			ss(t_stack_node **a, t_stack_node **b);
+void			sa(t_stack_node **a, bool print);
+void			sb(t_stack_node **b, bool print);
+void			ss(t_stack_node **a, t_stack_node **b, bool print);
 
 void			rotate(t_stack_node **stack);
-void			ra(t_stack_node **a);
-void			rb(t_stack_node **b);
-void			rr(t_stack_node **a, t_stack_node **b);
+void			ra(t_stack_node **a, bool print);
+void			rb(t_stack_node **b, bool print);
+void			rr(t_stack_node **a, t_stack_node **b, bool print);
 
 void			reverse_rotate(t_stack_node **stack);
-void			rra(t_stack_node **a);
-void			rrb(t_stack_node **b);
-void			rrr(t_stack_node **a, t_stack_node **b);
+void			rra(t_stack_node **a, bool print);
+void			rrb(t_stack_node **b, bool print);
+void			rrr(t_stack_node **a, t_stack_node **b, bool print);
 
 void			push(t_stack_node **src, t_stack_node **dest);
-void			pa(t_stack_node **b, t_stack_node**a);
-void			pb(t_stack_node **a, t_stack_node**b);
+void			pa(t_stack_node **b, t_stack_node**a, bool print);
+void			pb(t_stack_node **a, t_stack_node**b, bool print);
 
 //refresh
 void			refresh(t_stack_node *a, t_stack_node *b);
@@ -108,8 +108,5 @@ void			move_a_above_and_b_below_median(t_stack_node **a,
 					t_stack_node **b, t_stack_node *cheapest);
 void			move_a_below_and_b_above_median(t_stack_node **a,
 					t_stack_node **b, t_stack_node *cheapest);
-
-//VISUEL a SUPPRIME
-void			visual_stack(t_stack_node *a, t_stack_node *b);
 
 #endif
