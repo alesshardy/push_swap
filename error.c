@@ -6,7 +6,7 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 16:17:11 by apintus           #+#    #+#             */
-/*   Updated: 2024/01/31 16:22:07 by apintus          ###   ########.fr       */
+/*   Updated: 2024/02/05 18:04:21 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	free_errors_conc(t_stack_node **a, char *combined_arg)
 {
 	free(combined_arg);
 	free_stack(a);
-	ft_printf("Error\n");
+	write(2, "Error\n", 6);
 	exit(1);
 }
 
@@ -71,6 +71,6 @@ void	free_errors_init(t_stack_node **a, char **argv, int argc)
 {
 	ft_free(argv, argc);
 	free_stack(a);
-	ft_printf("Error\n");
+	write(2, "Error\n", 6);
 	exit(1);
 }
