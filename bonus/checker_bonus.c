@@ -6,7 +6,7 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 13:46:56 by apintus           #+#    #+#             */
-/*   Updated: 2024/02/09 15:51:50 by apintus          ###   ########.fr       */
+/*   Updated: 2024/02/09 16:58:45 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,11 +81,12 @@ int	main(int argc, char **argv)
 		return (free_stack(&a), free_stack(&b), write(2, "Error\n", 6));
 	while (1)
 	{
-		line = get_next_line(0);
+		line = get_next_line(0, 0);
 		if (!line)
 			break ;
 		if (check_move(line, &a, &b))
-			return (free_stack(&a), free_stack(&b), write(2, "Error\n", 6));
+			return (free_stack(&a), free_stack(&b), free(line)
+				, get_next_line(0, 1), write(2, "Error\n", 6));
 		free (line);
 	}
 	if (stack_sorted(a) && stack_len(b) == 0)

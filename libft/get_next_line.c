@@ -6,7 +6,7 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 11:15:22 by apintus           #+#    #+#             */
-/*   Updated: 2024/02/02 12:52:52 by apintus          ###   ########.fr       */
+/*   Updated: 2024/02/09 16:57:12 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,11 +96,13 @@ char	*ft_fill(int fd, char *data)
 	return (data);
 }
 
-char	*get_next_line(int fd)
+char	*get_next_line(int fd, int error)
 {
 	static char	*data;
 	char		*line;
 
+	if (error == 1)
+		return (free(data), NULL);
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	data = ft_fill(fd, data);

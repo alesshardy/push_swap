@@ -6,7 +6,7 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 11:16:24 by apintus           #+#    #+#             */
-/*   Updated: 2024/01/31 13:02:26 by apintus          ###   ########.fr       */
+/*   Updated: 2024/02/09 16:57:33 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-char	*get_next_line(int fd);
+char	*get_next_line(int fd, int error);
 char	*ft_fill(int fd, char *data);
 char	*ft_extract_line(char *data);
 char	*ft_update_data(char *old_data);
