@@ -6,18 +6,18 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 16:44:28 by apintus           #+#    #+#             */
-/*   Updated: 2024/01/30 15:41:45 by apintus          ###   ########.fr       */
+/*   Updated: 2024/02/09 15:35:58 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	*ft_free(char **strs, int count)
+void	*ft_free(char **strs)
 {
 	int	i;
 
 	i = 0;
-	while (i < count)
+	while (strs[i] != NULL)
 	{
 		free(strs[i]);
 		i++;
@@ -94,7 +94,7 @@ char	**ft_split(char const *s, char c)
 		{
 			strings[i] = ft_word(s, c);
 			if (!strings[i])
-				return (ft_free(strings, i));
+				return (ft_free(strings));
 			i++;
 		}
 		while (*s != '\0' && *s != c)

@@ -6,7 +6,7 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 14:17:37 by apintus           #+#    #+#             */
-/*   Updated: 2024/02/02 12:49:35 by apintus          ###   ########.fr       */
+/*   Updated: 2024/02/09 15:49:59 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@ int				error_syntax(char	*str);
 int				error_duplicate(t_stack_node *a, int nb);
 void			free_stack(t_stack_node **stack);
 void			free_errors_conc(t_stack_node **a, char *combined_arg);
-void			free_errors_init(t_stack_node **a, char **argv, int argc);
+void			free_errors_init(t_stack_node **a, char **argv);
 bool			ft_check_looong(char *str);
 long			ft_atol(char *str);
 void			append_node(t_stack_node **stack, int nb);
-void			init_stack_a(t_stack_node **a, char **argv, int argc);
+void			init_stack_a(t_stack_node **a, char **argv);
 void			push(t_stack_node **src, t_stack_node **dest);
 void			pa(t_stack_node **b, t_stack_node**a, bool print);
 void			pb(t_stack_node **a, t_stack_node**b, bool print);
@@ -70,6 +70,6 @@ t_stack_node	*find_last(t_stack_node *stack);
 bool			stack_sorted(t_stack_node *stack);
 t_stack_node	*find_max(t_stack_node *stack);
 t_stack_node	*find_min(t_stack_node *stack);
-void			*ft_free(char **strs, int count);
+void			*ft_free(char **strs);
 
 #endif

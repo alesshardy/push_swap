@@ -6,18 +6,18 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 15:56:08 by apintus           #+#    #+#             */
-/*   Updated: 2024/02/02 12:14:46 by apintus          ###   ########.fr       */
+/*   Updated: 2024/02/09 15:51:56 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
 
-void	*ft_free(char **strs, int count)
+void	*ft_free(char **strs)
 {
 	int	i;
 
 	i = 0;
-	while (i < count)
+	while (strs[i] != NULL)
 	{
 		free(strs[i]);
 		i++;
@@ -87,7 +87,7 @@ void	append_node(t_stack_node **stack, int nb)
 	}
 }
 
-void	init_stack_a(t_stack_node **a, char **argv, int argc)
+void	init_stack_a(t_stack_node **a, char **argv)
 {
 	int		i;
 	long	nb;
@@ -96,14 +96,14 @@ void	init_stack_a(t_stack_node **a, char **argv, int argc)
 	while (argv[i])
 	{
 		if (error_syntax(argv[i]))
-			free_errors_init(a, argv, argc);
+			free_errors_init(a, argv);
 		if (ft_check_looong(argv[i]))
-			free_errors_init(a, argv, argc);
+			free_errors_init(a, argv);
 		nb = ft_atol(argv[i]);
 		if (nb > INT_MAX || nb < INT_MIN)
-			free_errors_init(a, argv, argc);
+			free_errors_init(a, argv);
 		if (error_duplicate(*a, (int)nb))
-			free_errors_init(a, argv, argc);
+			free_errors_init(a, argv);
 		append_node(a, (int)nb);
 		i++;
 	}

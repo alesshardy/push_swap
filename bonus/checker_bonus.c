@@ -6,7 +6,7 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 13:46:56 by apintus           #+#    #+#             */
-/*   Updated: 2024/02/05 18:05:38 by apintus          ###   ########.fr       */
+/*   Updated: 2024/02/09 15:51:50 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ int	parse(int argc, char **argv, t_stack_node **a)
 	if (!argv)
 		return (0);
 	free(one_arg);
-	init_stack_a(a, argv, argc);
-	ft_free(argv, argc);
+	init_stack_a(a, argv);
+	ft_free(argv);
 	return (1);
 }
 

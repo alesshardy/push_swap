@@ -6,7 +6,7 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 14:42:49 by apintus           #+#    #+#             */
-/*   Updated: 2024/01/31 15:58:01 by apintus          ###   ########.fr       */
+/*   Updated: 2024/02/09 15:39:32 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ int	main(int argc, char **argv)
 	if (!argv)
 		return (0);
 	free(one_arg);
-	init_stack_a(&a, argv, argc);
-	ft_free(argv, argc);
+	init_stack_a(&a, argv);
+	ft_free(argv);
 	if (!stack_sorted(a))
 		sort(&a, &b);
 	free_stack(&a);

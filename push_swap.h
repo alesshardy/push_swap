@@ -6,7 +6,7 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 13:12:57 by apintus           #+#    #+#             */
-/*   Updated: 2024/02/02 12:51:35 by apintus          ###   ########.fr       */
+/*   Updated: 2024/02/09 15:39:20 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,16 @@ char			**ft_split(char const *s, char c);
 char			*ft_word(char const *s, char c);
 int				ft_strlen_sep(char const *s, char c);
 int				count_strings(char const *s, char c);
-void			*ft_free(char **strs, int count);
+void			*ft_free(char **strs);
 
 //init_stack
-void			init_stack_a(t_stack_node **a, char **argv, int argc);
+void			init_stack_a(t_stack_node **a, char **argv);
 void			append_node(t_stack_node **stack, int nb);
 long			ft_atol(char *str);
 
 //error
 void			free_errors_conc(t_stack_node **a, char *combined_arg);
-void			free_errors_init(t_stack_node **a, char **argv, int argc);
+void			free_errors_init(t_stack_node **a, char **argv);
 void			free_stack(t_stack_node **stack);
 int				error_duplicate(t_stack_node *a, int nb);
 int				error_syntax(char	*str);
